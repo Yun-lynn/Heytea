@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HEYTEA LA: From Opening Buzz to Local Ritual, a mini brand strategy note by Yolin Liang.">
+  <title>HEYTEA LA | From Opening Buzz to Local Ritual</title>
+  <style>
+    :root {
+      --paper: #f8f4eb;
+      --paper-light: #fffdf7;
+      --beige: #e8dece;
+      --beige-deep: #d7c6ac;
+      --ink: #161614;
+      --soft-ink: #656158;
+      --quiet: #9b9589;
+      --line: rgba(22, 22, 20, 0.12);
+      --green: #2f5e42;
+      --green-soft: #9eb69a;
+      --shadow: 0 28px 80px rgba(58, 48, 31, 0.12);
+      --max: 1180px;
+      --ease: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 78% 8%, rgba(255, 255, 255, 0.86), transparent 28rem),
+        linear-gradient(180deg, var(--paper-light), var(--paper) 38%, #f1eadf);
+      color: var(--ink);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(22, 22, 20, 0.024) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(22, 22, 20, 0.02) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black 0%, transparent 78%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      padding: 22px clamp(18px, 4vw, 58px);
+      transition: background 500ms ease, border-color 500ms ease, padding 500ms ease;
+    }
+
+    .site-header.is-scrolled {
+      padding-top: 14px;
+      padding-bottom: 14px;
+      background: rgba(248, 244, 235, 0.84);
+      border-bottom: 1px solid rgba(22, 22, 20, 0.08);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      width: min(100%, var(--max));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .mark,
+    .nav-links {
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: clamp(18px, 4vw, 42px);
+      color: var(--soft-ink);
+      text-transform: lowercase;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: var(--green);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 420ms var(--ease);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    main {
+      isolation: isolate;
+    }
+
+    section {
+      position: relative;
+      padding: clamp(90px, 11vw, 150px) clamp(18px, 5vw, 72px);
+      scroll-margin-top: 92px;
+    }
+
+    .section-inner {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--green);
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 26px;
+      font-size: clamp(3.4rem, 8.4vw, 8.5rem);
+      line-height: 0.96;
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 20px;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: var(--soft-ink);
+      font-size: clamp(0.92rem, 1.8vw, 1.38rem);
+      font-weight: 300;
+      line-height: 1.65;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 820px;
+      margin-bottom: 12px;
+      font-size: clamp(2.25rem, 5.4vw, 5rem);
+      line-height: 1.06;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 0.92rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      line-height: 1.55;
+      text-transform: uppercase;
+    }
+
+    .cn-line {
+      color: var(--green);
+      font-size: clamp(0.94rem, 1.5vw, 1.1rem);
+      letter-spacing: 0.08em;
+      line-height: 1.9;
+    }
+
+    .lede {
+      max-width: 720px;
+      color: var(--soft-ink);
+      font-size: clamp(1rem, 1.6vw, 1.18rem);
+      line-height: 1.95;
+    }
+
+    .fine-text {
+      color: var(--soft-ink);
+      font-size: 0.95rem;
+    }
+
+    .cn-copy {
+      color: var(--quiet);
+      font-size: 0.9rem;
+      line-height: 1.9;
+    }
+
+    /* Section 1: hero and strategic questions */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      padding-top: 124px;
+      overflow: hidden;
+    }
+
+    .hero .section-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(310px, 0.72fr);
+      gap: clamp(36px, 7vw, 92px);
+      align-items: center;
+    }
+
+    .hero-subtitle {
+      max-width: 650px;
+      margin-bottom: 58px;
+      color: var(--soft-ink);
+      font-size: clamp(1rem, 1.55vw, 1.18rem);
+      line-height: 1.95;
+    }
+
+    .question-list {
+      display: grid;
+      gap: 1px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .question {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 26px;
+      padding: clamp(24px, 3.2vw, 38px);
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .question-number {
+      color: var(--green);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.25rem;
+    }
+
+    .question-en {
+      margin-bottom: 14px;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.18rem, 2.2vw, 1.82rem);
+      line-height: 1.34;
+    }
+
+    .question-cn {
+      margin: 0;
+      color: var(--soft-ink);
+      font-size: clamp(0.92rem, 1.35vw, 1.04rem);
+      line-height: 1.9;
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: clamp(440px, 54vw, 680px);
+    }
+
+    .tea-river-bg {
+      position: absolute;
+      left: -18%;
+      right: -12%;
+      bottom: 11%;
+      width: 132%;
+      opacity: 0.58;
+    }
+
+    .cup {
+      position: absolute;
+      width: clamp(92px, 12vw, 160px);
+      aspect-ratio: 0.78;
+      border: 1px solid rgba(22, 22, 20, 0.12);
+      border-radius: 43% 43% 35% 35% / 18% 18% 46% 46%;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(235, 228, 213, 0.58)),
+        var(--paper-light);
+      box-shadow: var(--shadow);
+      animation: floatCup 9s var(--ease) infinite;
+    }
+
+    .cup::before {
+      content: "";
+      position: absolute;
+      left: 12%;
+      right: 12%;
+      top: 8%;
+      height: 13%;
+      border: 1px solid rgba(22, 22, 20, 0.15);
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(47, 94, 66, 0.18), rgba(215, 198, 172, 0.42));
+    }
+
+    .cup::after {
+      content: "";
+      position: absolute;
+      left: 16%;
+      right: 16%;
+      bottom: -16%;
+      height: 20%;
+      border-radius: 50%;
+      background: rgba(58, 48, 31, 0.14);
+      filter: blur(12px);
+      transform: skewX(-18deg);
+    }
+
+    .cup-one {
+      right: 10%;
+      top: 12%;
+      width: clamp(128px, 17vw, 220px);
+      transform: rotate(-5deg);
+    }
+
+    .cup-two {
+      right: 49%;
+      top: 42%;
+      transform: rotate(7deg);
+      animation-delay: -2.8s;
+    }
+
+    .cup-three {
+      right: 18%;
+      bottom: 12%;
+      width: clamp(78px, 9vw, 118px);
+      opacity: 0.76;
+      transform: rotate(4deg);
+      animation-delay: -5.2s;
+    }
+
+    .invitation-card {
+      position: absolute;
+      left: 0;
+      bottom: 2%;
+      width: min(45%, 260px);
+      min-width: 180px;
+      padding: 22px;
+      border: 1px solid rgba(22, 22, 20, 0.1);
+      background: rgba(255, 255, 255, 0.32);
+      box-shadow: 0 20px 60px rgba(58, 48, 31, 0.08);
+      transform: rotate(-4deg);
+    }
+
+    .invitation-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Section 2: existing assets with image placeholders */
+    .built {
+      background: rgba(255, 255, 255, 0.23);
+      border-top: 1px solid rgba(22, 22, 20, 0.07);
+      border-bottom: 1px solid rgba(22, 22, 20, 0.07);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr minmax(220px, 0.32fr);
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 54px;
+    }
+
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(18px, 2vw, 28px);
+    }
+
+    .asset-card,
+    .strategy-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.45), rgba(248, 244, 235, 0.62));
+      box-shadow: 0 16px 60px rgba(58, 48, 31, 0.06);
+    }
+
+    .image-placeholder {
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 16 / 10;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.42), rgba(232, 222, 206, 0.38)),
+        var(--beige);
+    }
+
+    .asset-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.88) contrast(0.96);
+      transition: transform 900ms var(--ease), filter 900ms ease;
+    }
+
+    .asset-card:hover .asset-image {
+      transform: scale(1.025);
+      filter: saturate(0.98) contrast(0.98);
+    }
+
+    .image-placeholder::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(47, 94, 66, 0.16);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .placeholder-label {
+      position: relative;
+      z-index: 2;
+      color: var(--green);
+      font-size: 0.7rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .asset-body {
+      padding: clamp(26px, 3vw, 42px);
+    }
+
+    .asset-body h3 {
+      max-width: 420px;
+    }
+
+    .asset-body .cn-line {
+      margin-bottom: 22px;
+      font-size: 0.92rem;
+    }
+
+    /* Section 3: contribution strategy cards */
+    .contribute {
+      overflow: hidden;
+    }
+
+    .strategy-stack {
+      display: grid;
+      gap: 26px;
+      margin-top: 54px;
+    }
+
+    .strategy-card {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.38fr) minmax(0, 1fr);
+      gap: clamp(28px, 5vw, 70px);
+      min-height: 430px;
+      padding: clamp(28px, 4vw, 52px);
+    }
+
+    .strategy-meta {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+      border-right: 1px solid var(--line);
+      padding-right: clamp(24px, 4vw, 48px);
+    }
+
+    .strategy-meta h3 {
+      margin-bottom: 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 3vw, 2.55rem);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      line-height: 1.12;
+      text-transform: none;
+    }
+
+    .idea-label {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--green);
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .meta-label {
+      margin: 0 0 7px;
+      color: var(--green);
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .meta-value {
+      margin: 0 0 22px;
+      color: var(--soft-ink);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .strategy-icon {
+      width: 100%;
+      max-width: 210px;
+      height: auto;
+      opacity: 0.76;
+    }
+
+    .strategy-body {
+      display: grid;
+      align-content: start;
+      gap: 26px;
+    }
+
+    .strategy-body p {
+      margin-bottom: 0;
+    }
+
+    .activation-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .activation-list li {
+      border: 1px solid rgba(47, 94, 66, 0.22);
+      border-radius: 999px;
+      padding: 9px 13px;
+      color: var(--green);
+      background: rgba(255, 255, 255, 0.28);
+      font-size: 0.7rem;
+      letter-spacing: 0.13em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    .closing {
+      margin-top: clamp(64px, 9vw, 118px);
+      padding-top: 38px;
+      border-top: 1px solid var(--line);
+    }
+
+    .closing-en {
+      max-width: 900px;
+      margin-bottom: 20px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.65rem, 3.4vw, 3.1rem);
+      line-height: 1.24;
+    }
+
+    .closing-cn {
+      max-width: 760px;
+      color: var(--green);
+      font-size: clamp(1rem, 1.65vw, 1.22rem);
+      line-height: 1.9;
+    }
+
+    .site-footer {
+      padding: 46px clamp(18px, 5vw, 72px) 56px;
+      border-top: 1px solid var(--line);
+      background: #eee6d9;
+    }
+
+    .footer-inner {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: end;
+      color: var(--soft-ink);
+      font-size: 0.88rem;
+    }
+
+    .footer-name {
+      margin: 0 0 6px;
+      color: var(--ink);
+      font-size: 0.92rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    address {
+      display: grid;
+      gap: 4px;
+      text-align: right;
+      font-style: normal;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: opacity 900ms ease, transform 900ms var(--ease);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .river-path {
+      stroke-dasharray: 900;
+      stroke-dashoffset: 900;
+      animation: drawRiver 5s var(--ease) forwards 700ms;
+    }
+
+    @keyframes floatCup {
+      0%,
+      100% {
+        translate: 0 0;
+      }
+      50% {
+        translate: 0 -16px;
+      }
+    }
+
+    @keyframes drawRiver {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero .section-inner,
+      .section-head,
+      .strategy-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-art {
+        min-height: 420px;
+      }
+
+      .strategy-meta {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        padding-right: 0;
+        padding-bottom: 28px;
+      }
+
+      .strategy-icon {
+        max-width: 170px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .site-header {
+        position: sticky;
+        padding: 15px 18px;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+      }
+
+      .mark {
+        max-width: 116px;
+        line-height: 1.55;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 7px 14px;
+        max-width: 220px;
+      }
+
+      section {
+        padding: 78px 18px;
+        scroll-margin-top: 116px;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 16vw, 5rem);
+      }
+
+      h1 span {
+        font-size: 0.82rem;
+        letter-spacing: 0.13em;
+      }
+
+      h2 {
+        font-size: clamp(2rem, 11vw, 3.35rem);
+      }
+
+      .hero-subtitle {
+        margin-bottom: 38px;
+      }
+
+      .question {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .hero-art {
+        min-height: 340px;
+      }
+
+      .cup-one {
+        right: 4%;
+        top: 5%;
+      }
+
+      .cup-two {
+        right: 49%;
+        top: 34%;
+      }
+
+      .cup-three {
+        right: 18%;
+      }
+
+      .invitation-card {
+        min-width: 160px;
+        width: 52%;
+      }
+
+      .asset-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .image-placeholder {
+        aspect-ratio: 4 / 3;
+      }
+
+      .strategy-card {
+        min-height: auto;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      address {
+        text-align: left;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header: edit navigation labels or section links here. -->
+  <header class="site-header" data-header>
+    <div class="nav-inner">
+      <a class="mark" href="#hero" aria-label="Back to top">HEYTEA LA</a>
+      <nav class="nav-links" aria-label="Page navigation">
+        <a href="#questions">questions</a>
+        <a href="#built">assets</a>
+        <a href="#contribute">contribution</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION 1: HERO. Edit the main title, subtitle, and bilingual questions here. -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="section-inner">
+        <div id="questions">
+          <p class="eyebrow reveal">mini brand strategy note</p>
+          <h1 class="reveal" id="hero-title">HEYTEA LA <span>From Opening Buzz to Local Ritual</span></h1>
+          <p class="hero-subtitle reveal">A mini brand strategy note on how HEYTEA can translate its original strength, premium tea, designed space, and cultural ritual, into the Los Angeles market.</p>
+
+          <ol class="question-list" aria-label="Three core strategic questions">
+            <li class="question reveal">
+              <span class="question-number">01</span>
+              <div>
+                <p class="question-en">How can HEYTEA keep its premium brand identity while building stronger frequency, accessibility, and local emotional connection?</p>
+                <p class="question-cn">喜茶如何在保持高端品牌调性的同时，建立足够的消费频次、可接近性和本地情感连接？</p>
+              </div>
+            </li>
+            <li class="question reveal">
+              <span class="question-number">02</span>
+              <div>
+                <p class="question-en">How can HEYTEA create repeatable local consumption occasions in Los Angeles?</p>
+                <p class="question-cn">喜茶如何在洛杉矶创造可重复的本地消费场景？</p>
+              </div>
+            </li>
+            <li class="question reveal">
+              <span class="question-number">03</span>
+              <div>
+                <p class="question-en">How can HEYTEA move from Chinese-community awareness and opening buzz into sustained mainstream repeat purchase and cultural recognition?</p>
+                <p class="question-cn">喜茶如何从华人圈层认知和开店热度，走向美国本地主流消费者的持续复购和文化认同？</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="hero-art reveal" aria-hidden="true">
+          <svg class="tea-river-bg" viewBox="0 0 680 270">
+            <path class="river-path" d="M20 184 C92 95, 154 228, 230 148 S365 72, 446 148 S572 230, 660 122" fill="none" stroke="#2f5e42" stroke-width="2" stroke-linecap="round"/>
+            <path d="M66 206 C108 176, 146 186, 178 214" fill="none" stroke="#9eb69a" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M464 120 C510 96, 552 108, 592 136" fill="none" stroke="#9eb69a" stroke-width="1.4" stroke-linecap="round"/>
+            <circle cx="205" cy="128" r="5" fill="none" stroke="#2f5e42" stroke-width="1.1"/>
+            <circle cx="596" cy="166" r="4" fill="none" stroke="#2f5e42" stroke-width="1.1"/>
+          </svg>
+          <div class="cup cup-one"></div>
+          <div class="cup cup-two"></div>
+          <div class="cup cup-three"></div>
+          <div class="invitation-card">
+            <svg viewBox="0 0 220 250">
+              <text x="16" y="28" fill="#656158" font-size="10" letter-spacing="3">ritual invitation</text>
+              <path d="M26 78 C62 47, 91 92, 128 64 S181 56, 198 88" fill="none" stroke="#2f5e42" stroke-width="1.7" stroke-linecap="round"/>
+              <path d="M18 140 C58 95, 102 166, 144 122 S192 112, 206 148" fill="none" stroke="#2f5e42" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M48 196 C82 172, 118 212, 154 184" fill="none" stroke="#9eb69a" stroke-width="1.4" stroke-linecap="round"/>
+              <circle cx="58" cy="108" r="5" fill="none" stroke="#161614" stroke-width="1"/>
+              <circle cx="168" cy="170" r="4" fill="none" stroke="#161614" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: WHAT HEYTEA HAS ALREADY BUILT. Replace placeholder blocks with your own images later. -->
+    <section class="built" id="built" aria-labelledby="built-title">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow reveal">existing LA marketing assets</p>
+            <h2 class="reveal" id="built-title">What HEYTEA Has Already Built</h2>
+            <p class="cn-line reveal">喜茶已经建立的 LA 营销资产</p>
+          </div>
+          <p class="lede reveal">Four signals already give HEYTEA a strong foundation for its next Los Angeles chapter.</p>
+        </div>
+
+        <div class="asset-grid">
+          <article class="asset-card reveal">
+            <div class="image-placeholder" aria-label="Image placeholder for Beverly Hills entry">
+              <img class="asset-image" src="assets/beverly-hills-entry.png" alt="HEYTEA in LA billboard at Beverly Hills">
+            </div>
+            <div class="asset-body">
+              <h3>Beverly Hills Premium Entry</h3>
+              <p class="cn-line">Beverly Hills 高端选址进入</p>
+              <p class="fine-text">HEYTEA's Beverly Hills entry placed the brand directly inside a luxury retail and lifestyle context. This gives the brand a strong premium signal from the first touchpoint.</p>
+              <p class="cn-copy">喜茶通过 Beverly Hills 首店进入洛杉矶高端零售和生活方式语境，这让品牌从第一个触点就具备了高端感和城市象征意义.</p>
+            </div>
+          </article>
+
+          <article class="asset-card reveal">
+            <div class="image-placeholder" aria-label="Image placeholder for California Sunset product">
+              <img class="asset-image" src="assets/california-sunset.png" alt="Beverly Hills sign with HEYTEA California Sunset illustration">
+            </div>
+            <div class="asset-body">
+              <h3>California Sunset Localized Product Signal</h3>
+              <p class="cn-line">California Sunset 本地化产品信号</p>
+              <p class="fine-text">California Sunset shows that HEYTEA is not simply exporting a Chinese menu. It is translating its product language into a Los Angeles mood.</p>
+              <p class="cn-copy">California Sunset 说明喜茶不是简单复制中国菜单，而是在尝试把自己的产品语言翻译成洛杉矶的城市情绪.</p>
+            </div>
+          </article>
+
+          <article class="asset-card reveal">
+            <div class="image-placeholder" aria-label="Image placeholder for Paul George visibility">
+              <img class="asset-image" src="assets/paul-george.png" alt="Paul George visiting HEYTEA and holding a drink">
+            </div>
+            <div class="asset-body">
+              <h3>Paul George Mainstream Lifestyle Visibility</h3>
+              <p class="cn-line">Paul George 主流生活方式曝光</p>
+              <p class="fine-text">Paul George's visit connects HEYTEA with LA sports culture, celebrity visibility, and mainstream lifestyle attention beyond the Chinese community.</p>
+              <p class="cn-copy">Paul George 的到访让喜茶与 LA 体育文化、明星曝光和主流生活方式注意力产生连接，不再只是华人圈层内部传播.</p>
+            </div>
+          </article>
+
+          <article class="asset-card reveal">
+            <div class="image-placeholder" aria-label="Image placeholder for USC student occasion">
+              <img class="asset-image" src="assets/usc-store.png" alt="HEYTEA USC store grand opening illustration">
+            </div>
+            <div class="asset-body">
+              <h3>USC Student Occasion Potential</h3>
+              <p class="cn-line">USC 学生消费场景潜力</p>
+              <p class="fine-text">The USC location creates a natural path into student routines: study breaks, group projects, campus hangouts, and young consumer discovery.</p>
+              <p class="cn-copy">USC 门店天然连接学生日常场景，包括学习间隙、小组作业、校园社交和年轻消费者的新品发现.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: WHAT I CAN CONTRIBUTE. Edit solution cards and activations here. -->
+    <section class="contribute" id="contribute" aria-labelledby="contribute-title">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow reveal">three possible brand moves</p>
+            <h2 class="reveal" id="contribute-title">What I Can Contribute</h2>
+            <p class="cn-line reveal">我能如何贡献</p>
+          </div>
+          <p class="lede reveal">Three possible brand moves mapped directly to the three core questions.</p>
+        </div>
+
+        <div class="strategy-stack">
+          <article class="strategy-card reveal">
+            <div class="strategy-meta">
+              <div>
+                <span class="idea-label">我的脑洞 1</span>
+                <h3>HEYTEA Local Circle</h3>
+                <p class="cn-line">高端本地 NGO 与优质社群开发</p>
+                <p class="meta-label">matched problem</p>
+                <p class="meta-value">Premium identity + local emotional connection</p>
+                <p class="meta-label">marketing logic</p>
+                <p class="meta-value">Community-Led Growth + Partnership Marketing</p>
+              </div>
+              <svg class="strategy-icon" viewBox="0 0 220 140" aria-hidden="true">
+                <path d="M26 74 C62 38, 98 108, 132 66 S184 42, 202 84" fill="none" stroke="#2f5e42" stroke-width="1.7" stroke-linecap="round"/>
+                <circle cx="70" cy="72" r="21" fill="none" stroke="#161614" stroke-width="1"/>
+                <circle cx="130" cy="72" r="21" fill="none" stroke="#161614" stroke-width="1"/>
+                <circle cx="100" cy="42" r="18" fill="none" stroke="#9eb69a" stroke-width="1.3"/>
+              </svg>
+            </div>
+            <div class="strategy-body">
+              <p class="fine-text">For a premium cultural beverage brand, local relevance should not rely only on mass exposure. HEYTEA can enter trusted local communities through selected NGOs, cultural organizations, women leadership groups, art communities, and young professional networks. These partnerships can create high-quality offline experiences that feel more meaningful than one-time influencer posts.</p>
+              <p class="cn-copy">对于一个高端文化饮品品牌来说，本地相关性不应只依赖大规模曝光。喜茶可以从高质量 NGO、文化组织、女性领导力社群、艺术社群和年轻职场人网络切入，通过可信任的本地关系建立品牌好感。这种方式比一次性 KOL 发帖更有质感，也更符合喜茶的高端调性。</p>
+              <ul class="activation-list" aria-label="Possible activations for HEYTEA Local Circle">
+                <li>Women leadership tea hour</li>
+                <li>Asian culture salon</li>
+                <li>Art and tea weekend</li>
+                <li>Nonprofit appreciation tea tasting</li>
+                <li>Young professionals community night</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="strategy-card reveal">
+            <div class="strategy-meta">
+              <div>
+                <span class="idea-label">我的脑洞 2</span>
+                <h3>HEYTEA Ritual Corners</h3>
+                <p class="cn-line">喜茶场景角：创造可重复消费场景</p>
+                <p class="meta-label">matched problem</p>
+                <p class="meta-value">Repeatable local consumption occasions</p>
+                <p class="meta-label">marketing logic</p>
+                <p class="meta-value">Occasion-Based Branding + Retail Experience Design</p>
+              </div>
+              <svg class="strategy-icon" viewBox="0 0 220 140" aria-hidden="true">
+                <path d="M40 104 h92 q-6 27 -45 27 t-47 -27z" fill="none" stroke="#161614" stroke-width="1"/>
+                <path d="M132 108 q34 -10 34 12 q0 18 -34 14" fill="none" stroke="#161614" stroke-width="1"/>
+                <path d="M42 56 C74 34, 102 70, 136 50 S188 44, 204 70" fill="none" stroke="#2f5e42" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M64 20 v36 M92 16 v40 M120 24 v32" fill="none" stroke="#9eb69a" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="strategy-body">
+              <p class="fine-text">Consumers build habits around occasions, not slogans. HEYTEA can use small in-store ritual corners to make specific local moments visible: reading month, coffee chat month, study break tables, creator tea meetups, and weekend lifestyle routes. This helps customers understand that HEYTEA is not only a drink to take away, but a space they can return to.</p>
+              <p class="cn-copy">消费者形成习惯，靠的不是口号，而是具体场景。喜茶可以在店内定期打造轻量场景角，比如读书月、coffee chat 月、学习间隙桌、creator 茶会和周末生活方式路线。这样可以让线下消费者直观看到，喜茶不只是一杯外带饮品，也可以是一个值得反复使用的生活空间。</p>
+              <ul class="activation-list" aria-label="Possible activations for HEYTEA Ritual Corners">
+                <li>Reading Month</li>
+                <li>Coffee Chat Month</li>
+                <li>Study Break Table</li>
+                <li>Creator Tea Table</li>
+                <li>Weekend Tea Route</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="strategy-card reveal">
+            <div class="strategy-meta">
+              <div>
+                <span class="idea-label">我的脑洞 3</span>
+                <h3>HEYTEA Tea Atelier</h3>
+                <p class="cn-line">喜茶：新茶文化的精致输出</p>
+                <p class="meta-label">matched problem</p>
+                <p class="meta-value">From Chinese-community awareness to mainstream cultural recognition</p>
+                <p class="meta-label">marketing logic</p>
+                <p class="meta-value">Experience Marketing + Cultural Branding</p>
+              </div>
+              <svg class="strategy-icon" viewBox="0 0 220 140" aria-hidden="true">
+                <path d="M42 96 C76 60, 112 118, 148 78 S192 62, 206 90" fill="none" stroke="#2f5e42" stroke-width="1.7" stroke-linecap="round"/>
+                <path d="M58 40 h84 q-5 38 -41 38 t-43 -38z" fill="none" stroke="#161614" stroke-width="1"/>
+                <path d="M80 22 C92 10, 107 10, 122 22" fill="none" stroke="#9eb69a" stroke-width="1.3" stroke-linecap="round"/>
+                <path d="M154 36 l24 12 -24 12 -24 -12z" fill="none" stroke="#2f5e42" stroke-width="1"/>
+              </svg>
+            </div>
+            <div class="strategy-body">
+              <p class="fine-text">HEYTEA Tea Atelier can turn New Asian Tea from a menu concept into a sensorial cultural experience. Instead of only telling consumers that HEYTEA uses high-quality tea and real ingredients, the atelier lets them taste, compare, make, and understand the difference. This helps HEYTEA move beyond the generic "boba shop" category and build a clearer cultural position in the U.S. market.</p>
+              <p class="cn-copy">喜茶茶坊可以把 “新亚洲茶饮” 从菜单概念转化成消费者能亲自感受的文化体验。与其只是告诉消费者喜茶使用高品质茶底和真实原料，不如让他们亲自品尝、比较、制作和理解差异。这能帮助喜茶跳出普通 “boba shop” 的类别认知，在美国市场建立更清晰的文化位置。</p>
+              <ul class="activation-list" aria-label="Possible activations for HEYTEA Tea Atelier">
+                <li>Tea base tasting</li>
+                <li>Ingredient story cards</li>
+                <li>Make your own California Sunset</li>
+                <li>New Asian Tea mini salon</li>
+                <li>Chinese tea culture discovery session</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="closing reveal">
+          <p class="closing-en">My goal is to help HEYTEA move from cultural curiosity to local habit, without losing the premium identity that made it special.</p>
+          <p class="closing-cn">我希望帮助喜茶从文化好奇走向本地习惯，同时不失去它原本最特别的高端品牌调性。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer: edit contact details here. -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-name">Yolin Liang</p>
+        <div>Brand Marketing / Project Coordination / Cross-cultural Consumer Growth</div>
+      </div>
+      <address>
+        <a href="mailto:yunlin.lylcareer@gmail.com">yunlin.lylcareer@gmail.com</a>
+        <a href="tel:+13108692684">+1 310-869-2684</a>
+      </address>
+    </div>
+  </footer>
+
+  <script>
+    // Header: apply a soft glass background after the first scroll.
+    const header = document.querySelector("[data-header]");
+    const setHeaderState = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 18);
+    };
+    setHeaderState();
+    window.addEventListener("scroll", setHeaderState, { passive: true });
+
+    // Scroll reveal: gently fade content into place as each block enters the viewport.
+    const revealItems = document.querySelectorAll(".reveal");
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14,
+      rootMargin: "0px 0px -9% 0px"
+    });
+
+    revealItems.forEach((item, index) => {
+      item.style.transitionDelay = `${Math.min(index % 4, 3) * 85}ms`;
+      revealObserver.observe(item);
+    });
+
+    // Anchor navigation: smooth scrolling with reduced-motion support.
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const target = document.querySelector(link.getAttribute("href"));
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({
+          behavior: prefersReducedMotion.matches ? "auto" : "smooth",
+          block: "start"
+        });
+      });
+    });
+  </script>
+</body>
+</html>
